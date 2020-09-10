@@ -6,11 +6,12 @@ use warnings;
 
 use JSON::PP qw(encode_json);
 
-my $x = [
+my $x = {
+    include => [
     { 'perl-version' => '5.12', },
     { 'perl-version' => '5.14', },
     { 'perl-version' => '5.16.2', },
-];
+] };
 
 my $y = encode_json($x);
 
