@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-use JSON::PP qw(encode_json);
+use JSON::PP;
 
 my $x = {
     include => [
@@ -13,10 +13,11 @@ my $x = {
     { 'perl-version' => '5.16.2', },
 ] };
 
-my $y = encode_json($x);
+my $line = '::set-output name=perl-versions::' . JSON::PP->new->utf8->indent(0)->encode($x);
 
-print ":: set-output name=perl-versions::$y\n";
-print "::set-output name=perl-versions::$y\n";
+print $line;
+$line =~ s{^::}{}:
+print $line;
 
 exit 0;
 
