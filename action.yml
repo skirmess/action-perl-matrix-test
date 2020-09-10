@@ -1,0 +1,37 @@
+name: Create Perl Matrix
+description: Create a Matrix over Perl Versions
+
+#inputs:
+#  perl-version:
+#    description: Perl version that should be installed
+#    required: true
+
+outputs:
+  perl-versions:
+    description: Perl Versions
+    value: ${{ fromJSON(steps.create-perl-versions.outputs.perl-versions) }}
+
+    # TODO docker action
+
+runs:
+  using: composite
+  steps:
+
+    # Github composite actions, contrary to workflows, force us to specify
+    # a shell. The only shells available on all platforms are bash, pwsh
+    # and python.
+    #
+    # If you use shell bash or a custom shell, like
+    # shell: perl {0}
+    # the action will prepend /usr/bin to the PATH on Windows. And because
+    # of the system Perl this will always run with the wrong, system Perl.
+    #
+    # That's why we have to either run Perl from pwsh or python.
+
+    - id: create-perl-versions:
+      run: |
+        $cmd = Join-Path $Env:GITHUB_ACTION_PATH 'bin' 'create-matrix.pl'
+        & 'perl' $cmd
+      shell: pwsh
+
+# vim: ts=2 sts=2 sw=2 et: syntax=yaml
