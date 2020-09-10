@@ -15,7 +15,7 @@ my $x = [
 my $y = encode_json($x);
 
 print ":: set-output name=perl-versions::$y\n";
-print "::set-output name=perl-versions$y\n";
+print "::set-output name=perl-versions::$y\n";
 
 exit 0;
 
