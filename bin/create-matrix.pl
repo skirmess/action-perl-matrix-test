@@ -6,12 +6,16 @@ use warnings;
 
 use JSON::PP qw(encode_json);
 
-my $x = [ '5.12', '5.14', '5.16.2', ];
+my $x = [
+    { 'perl-version' => '5.12', },
+    { 'perl-version' => '5.14', },
+    { 'perl-version' => '5.16.2', },
+];
 
 my $y = encode_json($x);
 
 print ":: set-output name=perl-versions::$y\n";
-print "::set-output name=perl-versions::$y\n";
+print "::set-output name=perl-versions$y\n";
 
 exit 0;
 
