@@ -28,7 +28,7 @@ runs:
     #
     # That's why we have to either run Perl from pwsh or python.
 
-    - id: create-perl-versions:
+    - id: create-perl-versions
       run: |
         $cmd = Join-Path $Env:GITHUB_ACTION_PATH 'bin' 'create-matrix.pl'
         & 'perl' $cmd
