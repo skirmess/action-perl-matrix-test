@@ -10,8 +10,8 @@ my $x = [ '5.12', '5.14', '5.16.2', ];
 
 my $y = encode_json($x);
 
-print ":: set-output name=perl-versions$y\n";
-print "::set-output name=perl-versions$y\n";
+print ":: set-output name=perl-versions::$y\n";
+print "::set-output name=perl-versions::$y\n";
 
 exit 0;
 
