@@ -9,7 +9,7 @@ description: Create a Matrix over Perl Versions
 outputs:
   perl-versions:
     description: Perl Versions
-    value: ${{ fromJSON(steps.create-perl-versions.outputs.perl-versions) }}
+    value: ${{ steps.create-perl-versions.outputs.perl-versions }}
 
     # TODO docker action
 
