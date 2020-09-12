@@ -34,4 +34,7 @@ runs:
         & 'perl' $cmd
       shell: pwsh
 
+    - run: echo '${{steps.create-perl-versions.outputs.perl-versions}}'
+      shell: bash
+
 # vim: ts=2 sts=2 sw=2 et: syntax=yaml
