@@ -16,8 +16,6 @@ my $x = {
 my $line = '::set-output name=perl-versions::' . JSON::PP->new->utf8->indent(0)->encode($x);
 
 print $line;
-$line =~ s{^::}{};
-print $line;
 
 exit 0;
 
