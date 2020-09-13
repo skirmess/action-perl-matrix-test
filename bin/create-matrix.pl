@@ -53,7 +53,7 @@ my $windows => {
         { 'perl-version' => '5.28.2', },
         { 'perl-version' => '5.30.3', },
     ],
-];
+};
 
 
 print '::set-output name=perl-versions-linux::' . JSON::PP->new->utf8->indent(0)->encode($linux);
