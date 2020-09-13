@@ -6,16 +6,59 @@ use warnings;
 
 use JSON::PP;
 
-my $x = {
-    include => [
-    { 'perl-version' => '5.12', },
-    { 'perl-version' => '5.14', },
-    { 'perl-version' => '5.16.2', },
-] };
+# TODO job to update available perl versions
+# TODO read config file from $ENV{GITHUB_WORKSPACE}/.github/... for minimum version
+# TODO add tests from base repo
 
-print '::set-output name=perl-versions-linux::' . JSON::PP->new->utf8->indent(0)->encode($x);
-print '::set-output name=perl-versions-macos::' . JSON::PP->new->utf8->indent(0)->encode($x);
-print '::set-output name=perl-versions-windows::' . JSON::PP->new->utf8->indent(0)->encode($x);
+my $linux => { 
+    include => [
+        { 'perl-version' => '5.8.1', },
+        { 'perl-version' => '5.8.2', },
+        { 'perl-version' => '5.8', },
+        { 'perl-version' => '5.10.0', },
+        { 'perl-version' => '5.10', },
+        { 'perl-version' => '5.12', },
+        { 'perl-version' => '5.14', },
+        { 'perl-version' => '5.16', },
+        { 'perl-version' => '5.18', },
+        { 'perl-version' => '5.20', },
+        { 'perl-version' => '5.22', },
+        { 'perl-version' => '5.24', },
+        { 'perl-version' => '5.26', },
+        { 'perl-version' => '5.28', },
+        { 'perl-version' => '5.30', },
+        { 'perl-version' => '5.32', },
+    ],
+};
+
+my $macos => {
+    include => [
+        { 'perl-version' => '5.18', },
+    ],
+};
+
+my $windows => {
+    include => [
+        { 'perl-version' => '5.8.9', },
+        { 'perl-version' => '5.10.0', },
+        { 'perl-version' => '5.10.1', },
+        { 'perl-version' => '5.12.3', },
+        { 'perl-version' => '5.14.4', },
+        { 'perl-version' => '5.16.3', },
+        { 'perl-version' => '5.18.4', },
+        { 'perl-version' => '5.20.3', },
+        { 'perl-version' => '5.22.3', },
+        { 'perl-version' => '5.24.4', },
+        { 'perl-version' => '5.26.3', },
+        { 'perl-version' => '5.28.2', },
+        { 'perl-version' => '5.30.3', },
+    ],
+];
+
+
+print '::set-output name=perl-versions-linux::' . JSON::PP->new->utf8->indent(0)->encode($linux);
+print '::set-output name=perl-versions-macos::' . JSON::PP->new->utf8->indent(0)->encode($macos);
+print '::set-output name=perl-versions-windows::' . JSON::PP->new->utf8->indent(0)->encode($windows);
 
 print `env`;
 
