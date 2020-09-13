@@ -60,15 +60,6 @@ print '::set-output name=perl-versions-linux::' . JSON::PP->new->utf8->indent(0)
 print '::set-output name=perl-versions-macos::' . JSON::PP->new->utf8->indent(0)->encode($macos);
 print '::set-output name=perl-versions-windows::' . JSON::PP->new->utf8->indent(0)->encode($windows);
 
-print `env`;
-
-print `pwd`;
-
-print "-> RUNNER_WORKSPACE\n";
-print `ls -la $ENV{RUNNER_WORKSPACE}`;
-print "-> GITHUB_WORKSPACE\n";
-print `ls -la $ENV{GITHUB_WORKSPACE}`;
-
 exit 0;
 
 #1;
