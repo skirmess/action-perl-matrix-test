@@ -10,7 +10,7 @@ use JSON::PP;
 # TODO read config file from $ENV{GITHUB_WORKSPACE}/.github/... for minimum version
 # TODO add tests from base repo
 
-my $linux => { 
+my $linux = { 
     include => [
         { 'perl-version' => '5.8.1', },
         { 'perl-version' => '5.8.2', },
@@ -31,13 +31,13 @@ my $linux => {
     ],
 };
 
-my $macos => {
+my $macos = {
     include => [
         { 'perl-version' => '5.18', },
     ],
 };
 
-my $windows => {
+my $windows = {
     include => [
         { 'perl-version' => '5.8.9', },
         { 'perl-version' => '5.10.0', },
