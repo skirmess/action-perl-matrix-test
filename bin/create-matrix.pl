@@ -56,9 +56,9 @@ my $windows = {
 };
 
 
-print '::set-output name=perl-versions-linux::' . JSON::PP->new->utf8->indent(0)->encode($linux);
-print '::set-output name=perl-versions-macos::' . JSON::PP->new->utf8->indent(0)->encode($macos);
-print '::set-output name=perl-versions-windows::' . JSON::PP->new->utf8->indent(0)->encode($windows);
+print '::set-output name=perl-versions-linux::' . JSON::PP->new->utf8->indent(0)->encode($linux) . "\n";
+print '::set-output name=perl-versions-macos::' . JSON::PP->new->utf8->indent(0)->encode($macos) . "\n";
+print '::set-output name=perl-versions-windows::' . JSON::PP->new->utf8->indent(0)->encode($windows) . "\n";
 
 exit 0;
 
