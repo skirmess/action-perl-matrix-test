@@ -13,9 +13,13 @@ my $x = {
     { 'perl-version' => '5.16.2', },
 ] };
 
-my $line = '::set-output name=perl-versions::' . JSON::PP->new->utf8->indent(0)->encode($x);
+my $line = '::set-output name=perl-versions-linux::' . JSON::PP->new->utf8->indent(0)->encode($x);
+my $line = '::set-output name=perl-versions-macos' . JSON::PP->new->utf8->indent(0)->encode($x);
+my $line = '::set-output name=perl-versions-windows' . JSON::PP->new->utf8->indent(0)->encode($x);
 
 print $line;
+
+print `env`;
 
 exit 0;
 
