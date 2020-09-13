@@ -21,8 +21,8 @@ print `env`;
 
 print `pwd`;
 
-print `ls -la $RUNNER_WORKSPACE`;
-print `ls -la $GITHUB_WORKSPACE`;
+print `ls -la $ENV{RUNNER_WORKSPACE}`;
+print `ls -la $ENV{GITHUB_WORKSPACE}`;
 
 exit 0;
 
