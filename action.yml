@@ -11,11 +11,11 @@ outputs:
     description: Perl Versions Linux
     value: ${{ steps.create-perl-versions.outputs.perl-versions-linux }}
 
-    perl-versions-macos:
+  perl-versions-macos:
     description: Perl Versions macOS
     value: ${{ steps.create-perl-versions.outputs.perl-versions-macos }}
 
-    perl-versions-windows:
+  perl-versions-windows:
     description: Perl Versions Windows
     value: ${{ steps.create-perl-versions.outputs.perl-versions-windows }}
 
