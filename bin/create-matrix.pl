@@ -31,10 +31,7 @@ use JSON::PP;
 #    ],
 #};
 
-my $linux = [
-        { 'perl-version' => '5.18', },
-        { 'perl-version' => '5.12', },
-    ];
+my $linux = { 'perl-version' => [ '5.18', '5.12' ] };
 
 my $macos = {
     include => [
